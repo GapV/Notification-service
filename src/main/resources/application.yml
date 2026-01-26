@@ -33,8 +33,6 @@ spring:
         spring.json.use.type.headers: false
         spring.json.value.default.type: org.example.notificationservice.dto.UserEventMessage
 
-
-
 server:
   port: 8081
 
@@ -43,3 +41,10 @@ logging:
   level:
     com.example.notificationservice: DEBUG
     org.springframework.mail: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
