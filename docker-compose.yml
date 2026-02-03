@@ -137,6 +137,9 @@ services:
       - spring.cloud.config.fail-fast=false
       - spring.datasource.url=jdbc:postgresql://postgres-jav:5432/postgres
       - spring.kafka.bootstrap-servers=kafka:9092
+      - management.endpoints.web.exposure.include=health,info,metrics
+      - management.endpoint.health.show-details=always
+      - management.endpoint.health.probes.enabled=true
     depends_on:
       postgres:
         condition: service_healthy
@@ -166,6 +169,9 @@ services:
       - spring.kafka.bootstrap-servers=kafka:9092
       - spring.mail.host=mailhog
       - spring.mail.port=1025
+      - management.endpoints.web.exposure.include=health,info,metrics
+      - management.endpoint.health.show-details=always
+      - management.endpoint.health.probes.enabled=true
     depends_on:
       kafka:
         condition: service_healthy
